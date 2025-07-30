@@ -1,6 +1,53 @@
 ﻿@{
     ViewData["Title"] = "Privacy Policy";
 }
+@model List<TODO.Models.TaskListModel>
+
 <h1>@ViewData["Title"]</h1>
 
 <p>Use this page to detail your site's privacy policy.</p>
+<br>
+<br>
+<br>
+
+<h1>Data from ViewData</h1>
+
+<h3>Task Title: </h3>@ViewData["Task"]
+<h3>Task Description: </h3>@ViewData["Description"]
+<h3>Task Status: </h3>@ViewData["Status"]
+<br>
+<br>
+<br>
+
+
+<h1>Data from ViewBag</h1>
+
+<h3>Task Title: </h3>@ViewBag.Task2
+<h3>Task Description: </h3>@ViewBag.Description2
+<h3>Task Status: </h3>@ViewBag.Status2
+<br>
+<br>
+<br>
+ 
+
+<h1>Data from TaskListModel</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Task Title</th>
+            <th>Task Description</th>
+            <th>Task Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var task in Model)
+        {
+            <tr>
+                <td>@task.Title</td>
+                <td>@task.Description</td>
+                <td>@task.Status</td>
+            </tr>
+        }
+    </tbody>
+</table>

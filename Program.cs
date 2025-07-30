@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.FileProviders;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -18,7 +21,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapStaticAssets();
+app.MapStaticAssets(
+    // app.UseStaticFiles(new StaticFileOptions
+    // {
+    //     FileProvider = new PhysicalFileProvider(
+    //         Path.Combine(Directory.GetCurrentDirectory(), "static")),
+    //     RequestPath = ""
+    // })
+);
 
 app.MapControllerRoute(
     name: "default",
